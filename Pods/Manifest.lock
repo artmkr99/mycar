@@ -1,44 +1,67 @@
 PODS:
+  - Alamofire (5.10.1)
   - Differentiator (5.0.0)
-  - R.swift (7.3.2)
-  - RxCocoa (6.5.0):
-    - RxRelay (= 6.5.0)
-    - RxSwift (= 6.5.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
+  - R.swift (7.7.0)
+  - RxCocoa (6.8.0):
+    - RxRelay (= 6.8.0)
+    - RxSwift (= 6.8.0)
   - RxDataSources (5.0.0):
     - Differentiator (~> 5.0)
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
-  - RxRelay (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxSwift (6.5.0)
-  - SnapKit (5.6.0)
+  - RxRelay (6.8.0):
+    - RxSwift (= 6.8.0)
+  - RxSwift (6.8.0)
+  - SDWebImage (5.19.7):
+    - SDWebImage/Core (= 5.19.7)
+  - SDWebImage/Core (5.19.7)
+  - SnapKit (5.7.1)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
 
 DEPENDENCIES:
+  - Moya/RxSwift
   - R.swift
   - RxCocoa
   - RxDataSources
   - RxSwift
+  - SDWebImage
   - SnapKit
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Differentiator
+    - Moya
     - R.swift
     - RxCocoa
     - RxDataSources
     - RxRelay
     - RxSwift
+    - SDWebImage
     - SnapKit
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
+  Alamofire: 840d2a1ad82355b536ec6ba5f97e5bfa54600ca3
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
-  R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
-  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  R.swift: 33e7082885d0c0bac7ae20ef7d2845a6a920ca11
+  RxCocoa: 2d33c1e1e5d66492052ad46b11024ae287572880
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
-  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
-  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  RxRelay: 335c78b926a2aea8d863a6d25f1ed3b5ad8e8705
+  RxSwift: 4e28be97cbcfeee614af26d83415febbf2bf6f45
+  SDWebImage: 8a6b7b160b4d710e2a22b6900e25301075c34cb3
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
 
-PODFILE CHECKSUM: 4ff91ababb9ca1179fe035ece21e5493183c999e
+PODFILE CHECKSUM: 02028e9d15fb98f2c9ebdac14dda9b6139dac408
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

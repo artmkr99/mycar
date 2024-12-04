@@ -10,9 +10,15 @@ target 'MyAuto' do
   pod 'RxCocoa'
   pod 'R.swift'
   pod 'RxDataSources'
+  pod 'Moya/RxSwift'
 
   # UI
   pod 'SnapKit'
+  pod 'SVProgressHUD'
+
+  # Photo
+
+  pod 'SDWebImage'
 
   
 end

@@ -37,8 +37,6 @@ final class AppCoordinator: BaseCoordinator {
     func logout() {
         self.didFinish(coordinator: mainTabBarCoordinator)
         self.start(coordinator: authCoordinator)
-        UserDefaults.standard.removeObject(forKey: "userAccessToken")
-        UserDefaults.standard.synchronize()
     }
 }
 

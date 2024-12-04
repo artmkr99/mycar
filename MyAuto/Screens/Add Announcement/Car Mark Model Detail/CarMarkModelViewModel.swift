@@ -11,26 +11,33 @@ import RxCocoa
 
 
 class CarMarkModelViewModel {
-    private let networkService = NetworkService()
-    let brandsTableDataSource = PublishRelay<[Brand]>()
-    
-    let selectedBrandID = PublishSubject<String>()
-    private let coordinator: AddAnnouncementCoordinator
+    private let networkService: CarInfoManager
+    let brandsTableDataSource = PublishRelay<[CarBrandModel]>()
+    var isLoading = ActivityIndicator()
 
-    init(coordinator: AddAnnouncementCoordinator) {
-        self.coordinator = coordinator
+    let selectedBrandID = PublishSubject<Int>()
+    private let bag = DisposeBag() // DisposeBag для управления подписками
+
+   // private let coordinator: AddAnnouncementCoordinator
+    //private var allBrands: [Brand] = [] // Store original brands
+
+
+    init(carInfoManager: CarInfoManager) {
+        self.networkService = carInfoManager
         getCarBrands()
     }
     
     func getCarBrands() {
-        networkService.getCarBrands { [weak self] result in
-            switch result {
-            case .success(let carBrands):
-                self?.brandsTableDataSource.accept(carBrands.brands)
-                
-            case .failure(let error):
-                print("Failed to retrieve car brands: \(error)")
-            }
-        }
+      networkService.brands
+        .asObservable()
+        .bind(to: brandsTableDataSource)
+        .disposed(by: bag)
     }
+
+//    func filterBrands(searchText: String) {
+//      let filteredBrands = allBrands.filter { brand in
+//        brand.name.lowercased().contains(searchText.lowercased())
+//      }
+//      brandsTableDataSource.accept(filteredBrands) // Update the observable
+//    }
 }

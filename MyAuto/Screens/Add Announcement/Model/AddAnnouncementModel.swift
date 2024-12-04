@@ -31,6 +31,7 @@ enum AddAnnouncementTableItems {
     case carGearType
     case carFuelType
     case isChange
+    case region
     case carPhotos
     case carPrice
 
@@ -49,6 +50,7 @@ enum AddAnnouncementTableItems {
         case .isChange: return "isChange"
         case .carPhotos: return "Car photos"
         case .carPrice: return "Price"
+        case .region: return "Region"
 
         }
     }
@@ -80,6 +82,8 @@ enum AddAnnouncementTableItems {
             return "carMilage"
         case .carPrice:
           return "carPrice"
+        case .region:
+          return "region"
         }
     }
 }

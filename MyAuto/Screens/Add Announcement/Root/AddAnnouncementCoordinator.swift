@@ -29,18 +29,19 @@ final class AddAnnouncementCoordinator: BaseCoordinator {
     let rootContorller = AddAnnouncementViewController()
     let viewModel = AddAnnouncementViewModel(coordinator: self)
     rootContorller.viewModel = viewModel
-    rootContorller.tabBarItem = UITabBarItem(title: "Announcement", image: nil, tag: 1)
-
+    rootContorller.tabBarItem = UITabBarItem(title: TabBarTypesEnum.addAnnouncement.title,
+                                             image: TabBarTypesEnum.addAnnouncement.unselectIcon,
+                                             selectedImage: TabBarTypesEnum.addAnnouncement.selectIcon)
     // Routing
     router.asObservable()
       .observe(on: MainScheduler.asyncInstance)
       .subscribe(onNext: { [unowned self] route in
         switch route {
         case .carMark:
-          let vc = CarMarkModelSelectionViewFactory.create(coordinator: self)
+          let vc = CarMarkModelSelectionViewFactory.create(coordinator: AppDelegate.appContext.serviceFactory.carInfoManager())
           self.navigationController.pushViewController(vc, animated: true)
         case .carModel:
-          let vc = CarMarkModelSelectionViewFactory.create(coordinator: self)
+          let vc = CarMarkModelSelectionViewFactory.create(coordinator: AppDelegate.appContext.serviceFactory.carInfoManager())
           self.navigationController.pushViewController(vc, animated: true)
 
         case .carYearSelection:
@@ -52,31 +53,35 @@ final class AddAnnouncementCoordinator: BaseCoordinator {
           self.navigationController.present(vc, animated: false)
 
         case .carColor:
-          let vc = CarColorViewController()
-          vc.modalPresentationStyle = .formSheet
-          self.navigationController.show(vc, sender: nil)
+          let vc = CarColorViewFactory.create()
+
+          self.navigationController.pushViewController(vc, animated: true)
 
         case .carGearType:
           let vc = HalfTableViewViewFactory.create(type: .gearType)
+          vc.delegate = rootContorller
           vc.modalPresentationStyle = .overCurrentContext
           self.navigationController.present(vc, animated: false)
 
         case .carBodyType:
           let vc = HalfTableViewViewFactory.create(type: .bodyType)
+          vc.delegate = rootContorller
           vc.modalPresentationStyle = .overCurrentContext
           self.navigationController.present(vc, animated: false)
 
         case .isChange:
           let vc = HalfTableViewViewFactory.create(type: .changeType)
+          vc.delegate = rootContorller
           vc.modalPresentationStyle = .overCurrentContext
           self.navigationController.present(vc, animated: false)
 
         case .carFuelType:
           let vc = HalfTableViewViewFactory.create(type: .fuelType)
+          vc.delegate = rootContorller
           vc.modalPresentationStyle = .overCurrentContext
           self.navigationController.present(vc, animated: false)
         case .carPhotos:
-          let vc = FinalAnnouncementController()
+          let vc = FinalAnnouncementViewFactory.create()
           self.navigationController.pushViewController(vc, animated: true)
 
         case .carPrice:
@@ -85,6 +90,14 @@ final class AddAnnouncementCoordinator: BaseCoordinator {
           vc.delegate = rootContorller
           self.navigationController.present(vc, animated: false)
 
+        case .carEngineSize:
+          let vc = CarMilageViewFactory.create(type: .engineSize)
+          vc.modalPresentationStyle = .overCurrentContext
+          vc.delegate = rootContorller
+          self.navigationController.present(vc, animated: false)
+        case .region:
+          let vc = RegionViewFactory.create()
+          self.navigationController.pushViewController(vc, animated: true)
         }
       }).disposed(by: bag)
 

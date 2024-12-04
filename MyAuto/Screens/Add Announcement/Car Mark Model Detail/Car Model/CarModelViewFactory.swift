@@ -8,9 +8,9 @@
 import Foundation
 
 enum CarModelViewFactory {
-    static func create(model: String) -> CarModelListViewController {
+    static func create(model: Any) -> CarModelListViewController {
         let controller = CarModelListViewController()
-        let viewModel = CarModelListViewModel(model: model)
+        let viewModel = CarModelListViewModel(model: model, manager: AppDelegate.appContext.serviceFactory.carInfoManager())
         controller.viewModel = viewModel
         
         return controller

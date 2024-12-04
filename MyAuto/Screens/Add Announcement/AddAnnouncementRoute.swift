@@ -19,5 +19,7 @@ enum AddAnnouncementRoute {
     case carFuelType
     case isChange
     case carPhotos
+    case region
     case carPrice
+    case carEngineSize
 }

@@ -15,17 +15,21 @@ final class AuthorizationCoordinator: BaseCoordinator {
     // MARK: - Private properties
     private var bag = DisposeBag()
     private let coordinator: AppCoordinator
-        
+    private let accountManager: UserAccountManagerType
+
     // MARK: - Constructor
     init(coordinator: AppCoordinator) {
-        self.coordinator = coordinator        
+        self.coordinator = coordinator
+        self.accountManager = AppDelegate.appContext.serviceFactory.accountManager()
         super.init()
     }
     
     override func start() {
         bag = DisposeBag()
         let rootViewController = LoginViewController()
-        print(navigationController.viewControllers)
+        let viewModel = LoginViewModel(accountManager: accountManager,
+                                       coordinator: self)
+        rootViewController.viewModel = viewModel
 
         router.asObservable()
             .observe(on: MainScheduler.instance)
@@ -35,18 +39,26 @@ final class AuthorizationCoordinator: BaseCoordinator {
                 case .signin:
                     self.navigationController.setViewControllers([rootViewController], animated: true)
                     print([rootViewController])
+                case .signup:
+                  let viewController = SignUpViewController()
+                  let viewModel = SignUpViewModel(accountManager: self.accountManager, coordinator: self)
+                  viewController.viewModel = viewModel
+                  self.navigationController.pushViewController(viewController, animated: true)
+                  print("SignUPCoordinatorNavigateTo")
+                case .home:
+                    self.coordinator.signIn()
                 }
             })
             .disposed(by: bag)
         
-
         self.navigationController.setViewControllers([rootViewController], animated: true)
         self.window.rootViewController = self.navigationController
         self.window.makeKeyAndVisible()
-        print(navigationController.viewControllers)
     }
 }
 
 enum AuthorizationRoute {
     case signin
+    case signup
+    case home
 }

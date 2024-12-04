@@ -8,9 +8,9 @@
 import Foundation
 
 enum CarMarkModelSelectionViewFactory {
-    static func create(coordinator: AddAnnouncementCoordinator) -> CarMarkModelSelectionController {
+    static func create(coordinator: CarInfoManager) -> CarMarkModelSelectionController {
         let controller = CarMarkModelSelectionController()
-        let viewModel = CarMarkModelViewModel(coordinator: coordinator)
+        let viewModel = CarMarkModelViewModel(carInfoManager: coordinator)
         controller.viewModel = viewModel
         
         return controller

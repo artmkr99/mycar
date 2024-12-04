@@ -12,13 +12,19 @@ import SnapKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var appCoordinator: AppCoordinator!
+    static var appContext: AppContext!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setupAppContext()
         appCoordinator = AppCoordinator()
         appCoordinator.start()
-        
+        appearanceCustomize()
+
         return true
     }
 
+  func setupAppContext() {
+      AppDelegate.appContext = AppContext()
+  }
 }
 

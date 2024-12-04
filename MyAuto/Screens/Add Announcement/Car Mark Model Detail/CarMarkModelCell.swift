@@ -18,8 +18,8 @@ class CarMarkModelCell: BaseTableViewCell {
         setupUI()
     }
     
-    func fill(data: Brand) {
-        markLabel.text = data.name
+    func fill(data: CarBrandModel) {
+      markLabel.text = data.manufacturer
     }
     
     func setupUI() {

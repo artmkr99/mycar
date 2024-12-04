@@ -38,8 +38,9 @@ class AddAnnouncementViewModel {
             ]),
             .init(model: .isChangeBlock, items: [
                 .isChange,
-                .carPhotos,
-                .carPrice
+                .carPrice,
+                .region,
+                .carPhotos
             ])
         ])
     }
@@ -61,7 +62,7 @@ class AddAnnouncementViewModel {
                 case .carBodyType:
                     self.coordinator.router.onNext(.carBodyType)
                 case .carEngineSize:
-                    self.coordinator.router.onNext(.halfView)
+                    self.coordinator.router.onNext(.carEngineSize)
                 case .carGearType:
                     self.coordinator.router.onNext(.carGearType)
                 case .carFuelType:
@@ -72,6 +73,8 @@ class AddAnnouncementViewModel {
                     self.coordinator.router.onNext(.carPhotos)
                 case .carPrice:
                   self.coordinator.router.onNext(.carPrice)
+                case .region:
+                  self.coordinator.router.onNext(.region)
                 }
             })
     }

@@ -12,24 +12,23 @@ import RxCocoa
 
 class CarModelListViewModel {
     
-    private let networkService = NetworkService()
-    let modelsTableDataSource = PublishRelay<[Model]>()
-    var model: String
+  private let networkService: CarInfoManager
+  let modelsTableDataSource = BehaviorRelay<[CarModels]>(value: []) // Change from CarModel? to [CarModel]
+  let bag = DisposeBag()
 
-    init(model: String) {
+  var model: Any
+
+  init(model: Any, manager: CarInfoManager) {
         self.model = model
+        self.networkService = manager
         getModels(model: model)
     }
     
-    func getModels(model: String) {
-        networkService.getCarModels(brandID: model) { [weak self] result in
-            switch result {
-            case .success(let carModels):
-                self?.modelsTableDataSource.accept(carModels.models)
-
-            case .failure(let error):
-                print("Failed to retrieve car brands: \(error)")
-            }
-        }
-    }
+  func getModels(model: Any) {
+    networkService.getCarModels(brandId: model)
+    networkService.models
+      .asObservable()
+      .bind(to: modelsTableDataSource) // Bind the array of models
+      .disposed(by: bag)
+  }
 }

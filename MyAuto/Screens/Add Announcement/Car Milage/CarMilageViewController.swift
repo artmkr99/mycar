@@ -15,6 +15,7 @@ protocol CustomModalViewControllerDelegate: AnyObject {
 enum CarMilageData {
     case milage
     case price
+    case engineSize
 }
 
 class CustomModalViewController: UIViewController, UITextFieldDelegate {
@@ -117,9 +118,14 @@ class CustomModalViewController: UIViewController, UITextFieldDelegate {
       switch dataType {
       case .milage:
         CarAnnouncementCollector.shared.carMillage = self.textField.text
+        AnnouncementDataCollectorManager.shared.milage = self.textField.text
       case .price:
         CarAnnouncementCollector.shared.carPrice = self.textField.text
+        AnnouncementDataCollectorManager.shared.price = self.textField.text
 
+      case .engineSize:
+        CarAnnouncementCollector.shared.carEngineSize = self.textField.text
+        AnnouncementDataCollectorManager.shared.engineSize = self.textField.text
       }
         delegate?.didSaveData()
         self.dismiss(animated: true)

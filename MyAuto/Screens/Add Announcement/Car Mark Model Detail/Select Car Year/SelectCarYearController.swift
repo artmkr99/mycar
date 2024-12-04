@@ -49,6 +49,9 @@ class SelectCarYearController: UIViewController {
                 }
                 let selectedMarkLabelText = cell.markLabel.text
                 CarAnnouncementCollector.shared.carYear = selectedMarkLabelText
+                AnnouncementDataCollectorManager.shared.year = selectedMarkLabelText
+
+
                 self?.navigationController?.popToRootViewController(animated: true)
             }
             .disposed(by: bag)

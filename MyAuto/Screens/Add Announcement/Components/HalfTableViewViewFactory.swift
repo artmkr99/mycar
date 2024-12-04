@@ -6,17 +6,12 @@
 //
 
 import Foundation
-enum HalfTableViewType {
-    case gearType
-    case fuelType
-    case bodyType
-    case changeType
-}
 
 enum HalfTableViewViewFactory {
     static func create(type: HalfTableViewType) -> HalfTableViewController {
         let controller = HalfTableViewController()
-        let viewModel = HalfTableViewViewModel(type: type)
+        let viewModel = HalfTableViewViewModel(type: type,
+                                               networkService: AppDelegate.appContext.serviceFactory.carInfoManager())
         controller.viewModel = viewModel
         
         return controller

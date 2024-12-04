@@ -49,15 +49,37 @@ class CarInfoTableCell: BaseTableViewCell {
             $0.bottom.equalToSuperview().offset(-5)
         }
         
-        holderStackView.addArrangedSubviews([
-            ItemView(name: "Engine", value: "2.0 Gasoline"),
-            ItemView(name: "Horse Powers", value: "129"),
-            ItemView(name: "Engine", value: "2.0 Gasoline"),
-            ItemView(name: "Engine", value: "2.0 Gasoline"),
-            ItemView(name: "Engine", value: "2.0 Gasoline"),
-            ItemView(name: "Engine", value: "2.0 Gasoline"),
-            ItemView(name: "Horse Powers", value: "129"),
-            ItemView(name: "Gear Box", value: "Automatic")])
+//        holderStackView.addArrangedSubviews([
+//            ItemView(name: "Engine", value: "2.0 Gasoline"),
+//            ItemView(name: "Horse Powers", value: "129"),
+//            ItemView(name: "Engine", value: "2.0 Gasoline"),
+//            ItemView(name: "Engine", value: "2.0 Gasoline"),
+//            ItemView(name: "Engine", value: "2.0 Gasoline"),
+//            ItemView(name: "Engine", value: "2.0 Gasoline"),
+//            ItemView(name: "Horse Powers", value: "129"),
+//            ItemView(name: "Gear Box", value: "Automatic"),
+//            ItemView(name: "Gear Box", value: "Automatic")])
+      let carInfo = CarAnnouncementCollector.shared
+
+         let fields: [(String, String?)] = [
+             ("Brand", carInfo.carBrand),
+             ("Model", carInfo.carModel),
+             ("Year", carInfo.carYear),
+             ("Mileage", carInfo.carMillage),
+             ("Price", carInfo.carPrice),
+             ("Color", carInfo.carColor),
+             ("Body Type", carInfo.carBodyType),
+             ("Gear Type", carInfo.carGearType),
+             ("Fuel Type", carInfo.carFuelType),
+             ("Is Changeable", carInfo.carIsChange),
+             ("Engine Size", carInfo.carEngineSize)
+         ]
+
+         fields.forEach { name, value in
+             if let value = value {
+                 holderStackView.addArrangedSubview(ItemView(name: name, value: value))
+             }
+         }
     }
 }
 

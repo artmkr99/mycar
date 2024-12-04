@@ -430,7 +430,7 @@ class MoneyBackView: BaseView {
     }
     
     private func setupDescriptionLabel(price: String) {
-        let fullText = "Subscription starts after 7 days at \(price) per month"
+        let fullText = "Subscription starts after 7 days at \(price) per \(PaymentDataCollector.shared.yearOrMonth)"
         let attributedText = NSMutableAttributedString(string: fullText)
         
         // Set the default font and color for the entire text

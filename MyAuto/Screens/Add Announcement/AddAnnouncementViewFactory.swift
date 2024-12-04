@@ -7,12 +7,12 @@
 
 import Foundation
 
-//enum AddAnnouncementViewFactory {
-//    static func create() -> AddAnnouncementViewController {
-//        let controller = AddAnnouncementViewController()
-//        let viewModel = AddAnnouncementViewModel(coordinator: <#AddAnnouncementCoordinator#>)
-//        controller.viewModel = viewModel
-//        
-//        return controller
-//    }
-//}
+enum AddAnnouncementViewFactory {
+    static func create() -> AddAnnouncementViewController {
+        let controller = AddAnnouncementViewController()
+        let viewModel = AddAnnouncementViewModel(coordinator: AddAnnouncementCoordinator())
+        controller.viewModel = viewModel
+        
+        return controller
+    }
+}

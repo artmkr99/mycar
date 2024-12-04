@@ -9,7 +9,7 @@ import UIKit
 
 final class BaseTextFieldView: BaseView {
 
-     let baseTextField: UITextField = {
+     var baseTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .gray
         

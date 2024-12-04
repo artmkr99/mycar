@@ -7,11 +7,23 @@
 
 import UIKit
 
+enum HalfTableViewType {
+    case gearType
+    case fuelType
+    case bodyType
+    case changeType
+}
+
+protocol HalfTableControllerDelegate: AnyObject {
+  func didSelectItem()
+}
+
 class HalfTableViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel: HalfTableViewViewModel!
-    
+    weak var delegate: HalfTableControllerDelegate?
+
     lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -66,15 +78,27 @@ class HalfTableViewController: UIViewController {
     
     // MARK: - Setup
     
-    func bindTableView(){
-        viewModel.tableDataSource.asObservable()
-            .bind(to: tableView.rx.items) { (table, row, item) in
-                let indexPath = IndexPath(row: row, section: 0)
-                let cell = table.dequeue(CarMarkModelCell.self, indexPath: indexPath)
-                cell.markLabel.text = item
-               
-                return cell
-            }.disposed(by: bag)
+    func bindTableView() {
+      viewModel.tableDataSource.asObservable()
+        .bind(to: tableView.rx.items) { (table, row, item) in
+          let indexPath = IndexPath(row: row, section: 0)
+          let cell = table.dequeue(CarMarkModelCell.self, indexPath: indexPath)
+          cell.markLabel.text = item
+
+          return cell
+        }.disposed(by: bag)
+
+      tableView.rx.modelSelected(String.self)
+        .subscribe(onNext: { [weak self] item in
+          guard let self = self else { return }
+          print(CarAnnouncementCollector.shared.carIsChange)
+          self.viewModel.selectedItem.onNext(item)
+          //CarAnnouncementCollector.shared.carBodyType = item
+          self.delegate?.didSelectItem()
+
+          self.dismiss(animated: true)
+        })
+        .disposed(by: bag)
     }
     
     func setupTapGesture() {
@@ -88,7 +112,7 @@ class HalfTableViewController: UIViewController {
     }
     
     @objc func tappedCloseButton() {
-        dismiss(animated: false, completion: nil)
+      self.dismiss(animated: true)
     }
     
     @objc func handleTap(_ gesture: UITapGestureRecognizer) {
