@@ -20,8 +20,15 @@ class CarMarkModelCell: BaseTableViewCell {
     
     func fill(data: CarBrandModel) {
       markLabel.text = data.manufacturer
+      setupSelected(data: data)
     }
     
+    func setupSelected(data: CarBrandModel) {
+      if AnnouncementDataCollectorManager.shared.mark == data.id {
+        markLabel.textColor = .green
+      }
+    }
+  
     func setupUI() {
         addSubview(markLabel)
         markLabel.snp.makeConstraints {

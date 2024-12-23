@@ -67,6 +67,8 @@
 		CE7D1C2B2CF78A0700398735 /* CarColorViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D1C2A2CF78A0700398735 /* CarColorViewFactory.swift */; };
 		CE861C702BCAB60600B989D0 /* CarMarkModelSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE861C6F2BCAB60600B989D0 /* CarMarkModelSelectionController.swift */; };
 		CE9BB8382CDE7ACB0075D9ED /* UserKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BB8372CDE7ACB0075D9ED /* UserKeys.swift */; };
+		CE9F0B842D0F629C0026430C /* FilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F0B832D0F629C0026430C /* FilterCoordinator.swift */; };
+		CE9F0B862D0F62C20026430C /* FilterRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F0B852D0F62C20026430C /* FilterRoute.swift */; };
 		CEB5396D2BD65B90008808DA /* CarModelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5396C2BD65B90008808DA /* CarModelListViewController.swift */; };
 		CEB5396F2BD65BCF008808DA /* CarModelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5396E2BD65BCF008808DA /* CarModelListViewModel.swift */; };
 		CEB539712BD65D0F008808DA /* CarModelViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB539702BD65D0F008808DA /* CarModelViewFactory.swift */; };
@@ -207,6 +209,8 @@
 		CE7D1C2A2CF78A0700398735 /* CarColorViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarColorViewFactory.swift; sourceTree = "<group>"; };
 		CE861C6F2BCAB60600B989D0 /* CarMarkModelSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMarkModelSelectionController.swift; sourceTree = "<group>"; };
 		CE9BB8372CDE7ACB0075D9ED /* UserKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeys.swift; sourceTree = "<group>"; };
+		CE9F0B832D0F629C0026430C /* FilterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCoordinator.swift; sourceTree = "<group>"; };
+		CE9F0B852D0F62C20026430C /* FilterRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRoute.swift; sourceTree = "<group>"; };
 		CEB5396C2BD65B90008808DA /* CarModelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelListViewController.swift; sourceTree = "<group>"; };
 		CEB5396E2BD65BCF008808DA /* CarModelListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelListViewModel.swift; sourceTree = "<group>"; };
 		CEB539702BD65D0F008808DA /* CarModelViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelViewFactory.swift; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 				CE0612992CF884B8003076CB /* FilterController.swift */,
 				CE06129B2CF884C2003076CB /* FilterViewModel.swift */,
 				CE06129D2CF884D1003076CB /* FilterViewFactory.swift */,
+				CE9F0B832D0F629C0026430C /* FilterCoordinator.swift */,
+				CE9F0B852D0F62C20026430C /* FilterRoute.swift */,
 				CE06129F2CF884D6003076CB /* Cells */,
 			);
 			path = Filter;
@@ -1007,6 +1013,7 @@
 				CECEC5B62C0E23C50068810B /* UIStackVIew.swift in Sources */,
 				CED7F1A92CEC899A00E2607C /* Region.swift in Sources */,
 				CEC06EAE2BBC26AE00E5FBE5 /* SettingsVIewController.swift in Sources */,
+				CE9F0B862D0F62C20026430C /* FilterRoute.swift in Sources */,
 				CEC06EA42BBC1AC200E5FBE5 /* AppKeys.swift in Sources */,
 				CE34F61F2BBAD64100EC29BA /* BaseView.swift in Sources */,
 				CED7F1B22CEC8B1B00E2607C /* RegionViewFactory.swift in Sources */,
@@ -1038,6 +1045,7 @@
 				CED7F1C02CED082A00E2607C /* AnnouncementDataCollectorManager.swift in Sources */,
 				CE4050582BC46D8700004D64 /* AddAnnouncementCoordinator.swift in Sources */,
 				CE1C0E942A0E47B800245AC3 /* AppDelegate.swift in Sources */,
+				CE9F0B842D0F629C0026430C /* FilterCoordinator.swift in Sources */,
 				CE40099D2CABF70D00927FBA /* HomeHolderCell.swift in Sources */,
 				CEC41E412CD8B25D006B8ABD /* AppContex.swift in Sources */,
 				CE4009A02CAC238800927FBA /* HomeAnnouncementView.swift in Sources */,

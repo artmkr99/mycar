@@ -8,9 +8,11 @@
 import UIKit
 
 enum FilterViewFactory {
-  static func create() -> UIViewController {
+  static func create(nav: BaseNavigationController) -> UIViewController {
     let viewController = FilterController()
-    let viewModel = FilterViewModel()
+    let coordinator = FilterCoordinator()
+    coordinator.navigationController = nav
+    let viewModel = FilterViewModel(coordinator: coordinator)
     viewController.viewModel = viewModel
     return viewController
   }

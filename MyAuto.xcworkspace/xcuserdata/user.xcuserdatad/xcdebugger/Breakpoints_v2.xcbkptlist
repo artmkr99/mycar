@@ -358,65 +358,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "670E93B3-3756-4812-86B8-7F733A2F427B"
+            uuid = "98B17D19-105F-4F75-8A3C-33E03B752EEA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyAuto/Screens/Filter/FilterViewModel.swift"
+            filePath = "MyAuto/Screens/Filter/FilterCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "handleItemSelection()"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "start()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "98B17D19-105F-4F75-8A3C-33E03B752EEA - c16bf858c3d47682"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyAuto.FilterCoordinator.start() -&gt; ()"
+                  moduleName = "MyAuto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Desktop/MyAuto/MyAuto/Screens/Filter/FilterCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "98B17D19-105F-4F75-8A3C-33E03B752EEA - c16bf858c3d47682"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyAuto.FilterCoordinator.start() -&gt; ()"
+                  moduleName = "MyAuto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Desktop/MyAuto/MyAuto/Screens/Filter/FilterCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "114">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0B72BEE-8312-4B3B-90CC-B689793D0A17"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyAuto/Screens/Filter/FilterController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "didSelectItem()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5DD7E99C-5BC2-4A57-BD20-03FA7234F336"
+            uuid = "8DA02E50-397E-4DBF-ACBE-80B60753D4DD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyAuto/Screens/Home/Views/HomeAnnouncementView.swift"
+            filePath = "MyAuto/Screens/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "fillViewInfo(data:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "init(networkManager:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5DD7E99C-5BC2-4A57-BD20-03FA7234F336 - fb12704c9aaf8d89"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyAuto.HomeAnnouncementView.fillViewInfo(data: MyAuto.Announcements) -&gt; ()"
-                  moduleName = "MyAuto"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/Desktop/MyAuto/MyAuto/Screens/Home/Views/HomeAnnouncementView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "858">
-               </Location>
-               <Location
-                  uuid = "5DD7E99C-5BC2-4A57-BD20-03FA7234F336 - fb12704c9aaf8d89"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyAuto.HomeAnnouncementView.fillViewInfo(data: MyAuto.Announcements) -&gt; ()"
-                  moduleName = "MyAuto"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/Desktop/MyAuto/MyAuto/Screens/Home/Views/HomeAnnouncementView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "865">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

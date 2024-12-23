@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class HomeViewController: UIViewController {
 
@@ -26,7 +27,6 @@ class HomeViewController: UIViewController {
     bindRx()
     setupUI()
     self.navigationController?.navigationBar.backgroundColor = .green
-
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -41,37 +41,36 @@ class HomeViewController: UIViewController {
   }
 
   func bindRx() {
-    viewModel?.tableDataSource.asObservable()
-      .bind(to: tableView.rx.items) { (table, row, item) in
-        let indexPath = IndexPath(row: row, section: 0)
-        if row == 0 {
-          let cell = table.dequeue(FilterTableCell.self, indexPath: indexPath)
-          return cell
+    guard let viewModel = viewModel else { return }
 
-        }
+      viewModel.newtableDataSource
+          .bind(to: tableView.rx.items) { (table, row, item) in
+              let indexPath = IndexPath(row: row, section: 0)
+              switch item {
+              case .filter:
+                  let cell = table.dequeue(FilterTableCell.self, indexPath: indexPath)
+                  return cell
 
-        let cell = table.dequeue(HomeHolderCell.self, indexPath: indexPath)
-        cell.fill(data: item)
+              case .announcements(let data):
+                  let cell = table.dequeue(HomeHolderCell.self, indexPath: indexPath)
+                  if let announcement = data.first { // Customize based on your requirements
+                      cell.fill(data: announcement)
+                  }
+                  return cell
+              }
+          }
+          .disposed(by: bag)
 
-        return cell
-      }.disposed(by: bag)
-
-//    tableView.rx.modelSelected(CarBrandModel.self)
-//      .subscribe(onNext: { [weak self] brand in
-//        let selectedBrandID = brand.id
-//        self?.viewModel.selectedBrandID.onNext(selectedBrandID)
-//        CarAnnouncementCollector.shared.carBrand = brand.cyrillicName
-//        AnnouncementDataCollectorManager.shared.mark = "\(brand.id)"
-//
-//        self?.setupToGoModels(model: brand.id)
-//      })
-//      .disposed(by: disposeBag)
-    tableView.rx.itemSelected
-      .subscribe { item in
-        print(item)
-        let vc = FilterViewFactory.create()
-        self.navigationController?.pushViewController(vc, animated: true)
-      }.disposed(by: bag)
+//      tableView.rx.itemSelected
+//          .subscribe(onNext: { [weak self] indexPath in
+//            let vc = FilterViewFactory.create(nav: self?.navigationController as! BaseNavigationController)
+//            self?.navigationController!.pushViewController(vc, animated: true)
+//            self.viewModel?.itemClicked.ac
+//          })
+//          .disposed(by: bag)
+          tableView.rx.modelSelected(HomeTableItemsModel.self)
+           .bind(to: viewModel.itemClicked)
+           .disposed(by: bag)
   }
 
   func rxSubscribe() {

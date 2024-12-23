@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SDWebImage
+
 
 final class HomeAnnouncementView: BaseView, UICollectionViewDelegateFlowLayout {
   private var imagesPath: [AnnouncementImage]?
@@ -90,6 +92,11 @@ extension HomeAnnouncementView: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeue(HomeAnnouncementPhotoCell.self, indexPath: indexPath)
 
+    if let imagePath = imagesPath?[indexPath.item].path {
+      cell.configure(with: imagePath)
+    } else {
+      cell.configure(with: nil) 
+    }
     return cell
   }
 }

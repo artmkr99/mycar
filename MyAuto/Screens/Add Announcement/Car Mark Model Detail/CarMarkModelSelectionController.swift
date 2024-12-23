@@ -93,6 +93,7 @@ class CarMarkModelSelectionController: UIViewController {
         self?.viewModel.selectedBrandID.onNext(selectedBrandID)
         CarAnnouncementCollector.shared.carBrand = brand.cyrillicName
         AnnouncementDataCollectorManager.shared.mark = brand.id
+        brand.selectedID == brand.id
 
         self?.setupToGoModels(model: brand.id)
       })

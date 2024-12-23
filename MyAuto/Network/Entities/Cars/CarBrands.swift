@@ -15,4 +15,5 @@ struct CarBrands: Codable {
 struct CarBrandModel: Codable {
     let id: Int
     let manufacturer, cyrillicName: String
+    var selectedID: Int?
 }
